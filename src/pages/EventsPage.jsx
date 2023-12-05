@@ -1,6 +1,6 @@
 import React from "react";
 import { getEvents } from "../Api/events.jsx";
-import { Heading } from "@chakra-ui/react";
+import { Heading, SimpleGrid } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { EventCard } from "../components/EventCard.jsx";
 
@@ -19,14 +19,14 @@ export const EventsPage = () => {
   return (
     <div className="events_page">
       <Heading>List of events</Heading>
-      <div className="events_list">
+      <SimpleGrid minChildWidth="120px" spacing="40px">
         {events &&
           events.map((event) => (
             <div className="event" key={event.id}>
               <EventCard event={event} />
             </div>
           ))}
-      </div>
+      </SimpleGrid>
     </div>
   );
 };

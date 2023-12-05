@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getEvent } from "../Api/events";
 import { useState } from "react";
 import { getUser } from "../Api/users";
+import { UserCard } from "../components/UserCard";
 
 export const EventPage = () => {
   const [event, setEvent] = useState(null);
@@ -34,8 +35,7 @@ export const EventPage = () => {
         <p className="event_location">{event.location}</p>
       </div>
       <div className="event_user">
-        <p>{user.name}</p>
-        <img src={user.image} alt={user.name} />
+        <UserCard user={user} />
       </div>
     </>
   );

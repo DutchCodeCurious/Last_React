@@ -23,7 +23,7 @@ export async function getUser(id) {
     user = response.data;
   } catch (error) {
     console.error(
-      "Er is een fout opgetreden bij het ophalen van het event:",
+      "Er is een fout opgetreden bij het ophalen van de user:",
       error
     );
   }
