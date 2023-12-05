@@ -1,0 +1,67 @@
+.app {
+  display: flex;
+  justify-content: center;
+  .container {
+    width: 100%;
+
+    .link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    //NAVBAR
+
+    .navbar {
+      .container {
+        padding: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+          img {
+            width: 100px;
+            border-radius: 50%;
+          }
+        }
+        .links {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          h6 {
+            font-size: 16px;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+
+    // Events Page
+    .events_page {
+      .events_list {
+        display: flex;
+        .event {
+          padding: 5px;
+          width: 300px;
+          height: 300px;
+        }
+      }
+    }
+
+    // FOOTER
+
+    footer {
+      margin-top: 100px;
+      padding: 20px;
+      background-color: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      img {
+        width: 50px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

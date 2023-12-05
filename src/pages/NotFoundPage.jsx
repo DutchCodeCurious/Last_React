@@ -1,4 +1,5 @@
 export const NotFoundPage = () => {
+  console.log("Render NotFoundPage");
   return (
     <div>
       <h1>404 Not Found</h1>

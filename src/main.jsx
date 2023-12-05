@@ -1,9 +1,10 @@
-import { ChakraProvider } from "@chakra-ui/react";
 import React from "react";
-import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// Styles of the site imports
 import { Root } from "./components/Root";
+import "./style.scss";
 
 // Pages import
 import { AddEventPage } from "./pages/AddEventPage";
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
         // loader: postListLoader,
       },
       {
-        path: "/event/:eventId",
+        path: "/event/:id",
         element: <EventPage />,
         // loader: postLoader,
         // action: addComment,
@@ -44,10 +45,15 @@ const router = createBrowserRouter([
   },
 ]);
 // @ts-ignore
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <ChakraProvider>
-      <RouterProvider router={router} />
-    </ChakraProvider>
-  </React.StrictMode>
-);
+
+function App() {
+  return (
+    <div className="app">
+      <div className="container">
+        <RouterProvider router={router} />
+      </div>
+    </div>
+  );
+}
+
+export default App;
