@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { getUsers } from "../Api/users";
 import { UserCard } from "../components/UserCard";
+import { useActiveUser } from "../context/activeUser";
 
 export const UserPage = () => {
   const [users, setUsers] = useState([]);
+  const [activeId, setActiveId] = useState(false);
+  const { setActiveUser } = useActiveUser();
   console.log("Render UserPage");
+
+  function handleOnClick(id) {
+    setActiveUser(id);
+    setActiveId(id);
+  }
 
   useEffect(() => {
     getUsers().then((res) => setUsers(res));
@@ -21,7 +29,11 @@ export const UserPage = () => {
       <h1>Choose User</h1>
       {users &&
         users.map((user) => (
-          <div className="user" key={user.id}>
+          <div
+            className={`user ${activeId === user.id ? "active" : ""}`}
+            key={user.id}
+            onClick={() => handleOnClick(user.id)}
+          >
             <UserCard user={user} />
           </div>
         ))}
