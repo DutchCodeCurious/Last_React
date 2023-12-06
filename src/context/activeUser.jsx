@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 const ActiveUserContext = createContext();
 
@@ -11,7 +11,20 @@ export function useActiveUser() {
 }
 
 export function ActiveUserProvider({ children }) {
-  const [activeUser, setActiveUser] = useState(null);
+  const [activeUser, setActiveUser] = useState(() => {
+    const storedActiveUser = localStorage.getItem("activeUser");
+    return storedActiveUser ? JSON.parse(storedActiveUser) : null;
+  });
+
+  useEffect(() => {
+    if (activeUser) {
+      localStorage.setItem("activeUser", JSON.stringify(activeUser));
+    } else {
+      localStorage.removeItem("activeUser");
+    }
+  }, [activeUser]);
+
+  console.log(activeUser);
 
   return (
     <ActiveUserContext.Provider value={{ activeUser, setActiveUser }}>

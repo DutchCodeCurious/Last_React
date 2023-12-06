@@ -5,13 +5,13 @@ import { useActiveUser } from "../context/activeUser";
 
 export const UserPage = () => {
   const [users, setUsers] = useState([]);
-  const [activeId, setActiveId] = useState(false);
-  const { setActiveUser } = useActiveUser();
+  // const [activeId, setActiveId] = useState(false);
+  const { activeUser, setActiveUser } = useActiveUser();
   console.log("Render UserPage");
 
-  function handleOnClick(id) {
-    setActiveUser(id);
-    setActiveId(id);
+  function handleOnClick(user) {
+    setActiveUser(user);
+    // setActiveId(user.id);
   }
 
   useEffect(() => {
@@ -23,16 +23,15 @@ export const UserPage = () => {
     return <div>loading...</div>;
   }
 
-  console.log(users);
   return (
     <div className="user_list">
       <h1>Choose User</h1>
       {users &&
         users.map((user) => (
           <div
-            className={`user ${activeId === user.id ? "active" : ""}`}
+            className={`user ${activeUser.id === user.id ? "active" : ""}`}
             key={user.id}
-            onClick={() => handleOnClick(user.id)}
+            onClick={() => handleOnClick(user)}
           >
             <UserCard user={user} />
           </div>

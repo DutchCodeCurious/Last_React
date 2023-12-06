@@ -8,11 +8,19 @@ export const Navigation = () => {
   const { activeUser, setActiveUser } = useActiveUser();
   const [user, setUser] = useState(null);
 
+  {
+    /** 
   useEffect(() => {
     if (activeUser != null) {
       getUser(activeUser).then((res) => setUser(res));
+      localStorage.setItem("user", JSON.stringify(user));
     }
   }, [activeUser]);
+
+  */
+  }
+
+  console.log(activeUser);
 
   return (
     <nav className="navbar">
@@ -32,7 +40,9 @@ export const Navigation = () => {
           </Link>
 
           <Link className="link" to="/user">
-            {(user != null && <h6>{user.name}</h6>) || <h6>Log In</h6>}
+            {(activeUser != null && <h6>{activeUser.name}</h6>) || (
+              <h6>Log In</h6>
+            )}
           </Link>
 
           <Link className="link" to="/AddEvent">
