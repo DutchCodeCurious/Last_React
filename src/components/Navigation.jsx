@@ -2,25 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 import { useActiveUser } from "../context/activeUser";
-import { getUser } from "../Api/users";
 
 export const Navigation = () => {
-  const { activeUser, setActiveUser } = useActiveUser();
-  const [user, setUser] = useState(null);
-
-  {
-    /** 
-  useEffect(() => {
-    if (activeUser != null) {
-      getUser(activeUser).then((res) => setUser(res));
-      localStorage.setItem("user", JSON.stringify(user));
-    }
-  }, [activeUser]);
-
-  */
-  }
-
-  console.log(activeUser);
+  const { activeUser } = useActiveUser();
 
   return (
     <nav className="navbar">
