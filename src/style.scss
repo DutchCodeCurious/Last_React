@@ -85,6 +85,23 @@
       }
     }
 
+    // User Card
+    .user_card {
+      padding: 10px;
+      width: fit-content;
+      padding: 10px;
+      cursor: pointer;
+      &:hover {
+        border-radius: 5%;
+        background-color: navy;
+        color: gold;
+      }
+      &.active {
+        border-radius: 5%;
+        background-color: green;
+        color: black;
+      }
+    }
     // User Page
 
     .user_list {

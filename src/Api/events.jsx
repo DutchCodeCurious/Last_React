@@ -29,3 +29,17 @@ export async function getEvent(id) {
   }
   return event;
 }
+
+export async function getEventByUser(userId) {
+  let events = [];
+  try {
+    const response = await axios.get(`${BASE_URL}/events?createdBy=${userId}`);
+    events = response.data;
+  } catch (error) {
+    console.error(
+      "Er is een fout opgetreden bij het ophalen van de events:",
+      error
+    );
+  }
+  return events;
+}

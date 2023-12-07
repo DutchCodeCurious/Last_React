@@ -1,9 +1,17 @@
 import React from "react";
+import { useActiveUser } from "../context/activeUser";
 import { Box, Flex, Heading, Text, Avatar } from "@chakra-ui/react";
 
 export const UserCard = ({ user }) => {
+  const { activeUser } = useActiveUser();
+  console.log("Render UserCard");
+
   return (
-    <Box>
+    <Box
+      className={`user_card ${
+        activeUser && activeUser.id === user.id ? "active" : ""
+      }`}
+    >
       <Flex spacing="4">
         <Flex flex="1" gap="4" alignItems="center" flexWrap="wrap">
           <Avatar name={user.name} src={user.image} />
