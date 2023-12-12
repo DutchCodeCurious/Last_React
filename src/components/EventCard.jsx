@@ -37,7 +37,11 @@ export const EventCard = ({ event }) => {
           >
             More info
           </Button>
-          <Button variant="ghost" colorScheme="blue">
+          <Button
+            variant="ghost"
+            colorScheme="blue"
+            onClick={() => console.log(event.id)}
+          >
             Edit
           </Button>
         </ButtonGroup>

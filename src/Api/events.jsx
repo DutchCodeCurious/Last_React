@@ -43,3 +43,16 @@ export async function getEventByUser(userId) {
   }
   return events;
 }
+
+export async function createEvent(event) {
+  try {
+    const response = await axios.post(`${BASE_URL}/events`, event);
+    console.log("Post is made");
+    console.log(response);
+  } catch (error) {
+    console.error(
+      "Er is een fout opgetreden bij het aanmaken van het event:",
+      error
+    );
+  }
+}

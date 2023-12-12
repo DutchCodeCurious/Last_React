@@ -1,7 +1,6 @@
 import { EventCard } from "./EventCard";
 import { SimpleGrid } from "@chakra-ui/react";
 import React from "react";
-import { useEffect } from "react";
 
 export function ListDisplay(events) {
   console.log(events);
