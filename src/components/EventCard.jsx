@@ -40,7 +40,8 @@ export const EventCard = ({ event }) => {
           <Button
             variant="ghost"
             colorScheme="blue"
-            onClick={() => console.log(event.id)}
+            as={Link}
+            to={`/event/` + event.id.toString() + `/edit`}
           >
             Edit
           </Button>

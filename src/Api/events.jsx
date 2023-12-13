@@ -56,3 +56,16 @@ export async function createEvent(event) {
     );
   }
 }
+
+export async function updateEvent(event) {
+  try {
+    const response = await axios.put(`${BASE_URL}/events/${event.id}`, event);
+    console.log("Put is made");
+    console.log(response);
+  } catch (error) {
+    console.error(
+      "Er is een fout opgetreden bij het updaten van het event:",
+      error
+    );
+  }
+}
