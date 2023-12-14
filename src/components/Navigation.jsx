@@ -18,20 +18,17 @@ export const Navigation = () => {
           <Link className="link" to="/">
             <h6>Events</h6>
           </Link>
-
-          <Link className="link" to="/event/1">
-            <h6>Event</h6>
-          </Link>
-
           <Link className="link" to="/user">
             {(activeUser != null && <h6>{activeUser.name}</h6>) || (
               <h6>Log In</h6>
             )}
           </Link>
-
-          <Link className="link" to="/AddEvent">
-            <h6>Add Event</h6>
-          </Link>
+          {(activeUser != null && (
+            <Link className="link" to="/AddEvent">
+              <h6>Add Event</h6>
+            </Link>
+          )) ||
+            null}
         </div>
       </div>
     </nav>

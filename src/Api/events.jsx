@@ -49,11 +49,13 @@ export async function createEvent(event) {
     const response = await axios.post(`${BASE_URL}/events`, event);
     console.log("Post is made");
     console.log(response);
+    return { success: true, data: response.data.id };
   } catch (error) {
     console.error(
       "Er is een fout opgetreden bij het aanmaken van het event:",
       error
     );
+    return { success: false, error: error.message };
   }
 }
 
@@ -62,10 +64,27 @@ export async function updateEvent(event) {
     const response = await axios.put(`${BASE_URL}/events/${event.id}`, event);
     console.log("Put is made");
     console.log(response);
+    return { success: true, data: response.data.id };
   } catch (error) {
     console.error(
       "Er is een fout opgetreden bij het updaten van het event:",
       error
     );
+    return { success: false, error: error.message };
+  }
+}
+
+export async function deleteEvent(id) {
+  try {
+    const response = await axios.delete(`${BASE_URL}/events/${id}`);
+    console.log("Delete is made");
+    console.log(response);
+    return { success: true };
+  } catch (error) {
+    console.error(
+      "Er is een fout opgetreden bij het deleten van het event:",
+      error
+    );
+    return { success: false, error: error.message };
   }
 }

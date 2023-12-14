@@ -13,12 +13,12 @@
   ],
   "events": [
     {
-      "createdBy": 1,
+      "createdBy": 2,
       "title": "Trampoline party",
       "description": "Bounce around with your friends",
       "image": "https://i.pinimg.com/736x/3d/2f/af/3d2faf4e3188d34a9fcdc00df59e77b0.jpg",
       "categoryIds": [
-        3,
+        1,
         2
       ],
       "location": "My back yard",
@@ -27,8 +27,7 @@
       "id": 1
     },
     {
-      "id": 2,
-      "createdBy": 1,
+      "createdBy": 2,
       "title": "Laser Tag mania",
       "description": "Let's play laser tag!",
       "image": "https://www.ctvnews.ca/polopoly_fs/1.5118552.1600965663!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg",
@@ -37,7 +36,8 @@
       ],
       "location": "Blinded by the Lights Laser Tag, 15 Main St.",
       "startTime": "2023-04-06T18:46",
-      "endTime": "2023-04-06T17:46"
+      "endTime": "2023-04-06T17:46",
+      "id": 2
     },
     {
       "id": 3,
@@ -67,47 +67,64 @@
       "endTime": "2023-03-09T07:00:00.000Z"
     },
     {
-      "createdBy": 1,
-      "title": "Stemmen",
-      "description": "Stem op je partij, alles behalve pvv graag",
-      "image": "",
+      "createdBy": 2,
+      "title": "eweqe",
+      "description": "wdadsfafv",
+      "image": "dfy",
       "categoryIds": [
-        5,
-        11
+        3,
+        6,
+        8
       ],
-      "location": "Nederland",
-      "startTime": "2023-12-15T12:40",
-      "endTime": "2023-12-30T12:40",
+      "location": "yujfstr",
+      "startTime": "2024-01-04T15:10",
+      "endTime": "2023-12-31T15:10",
       "id": 5
     },
     {
       "createdBy": 2,
-      "title": "Verkiezen",
-      "description": "Ergen ",
-      "image": "",
+      "title": "sadasds",
+      "description": "fdsafsad",
+      "image": "sadsad",
       "categoryIds": [
-        11,
-        5
+        4,
+        6,
+        9,
+        11
       ],
-      "location": "Dutchland",
-      "startTime": "2023-12-23T11:31",
-      "endTime": "2023-12-22T11:31",
+      "location": "fsasfasf",
+      "startTime": "2023-12-29T15:18",
+      "endTime": "2023-12-29T18:18",
       "id": 6
     },
     {
       "createdBy": 2,
-      "title": "Stemm",
-      "description": "DIneg",
-      "image": "",
+      "title": "sdasda",
+      "description": "sdasd",
+      "image": "sadasdasd",
       "categoryIds": [
-        11,
         5,
-        6
+        9,
+        4
       ],
-      "location": "Frank",
-      "startTime": "2023-12-24T11:32",
-      "endTime": "2023-12-23T11:32",
+      "location": "asdasda",
+      "startTime": "2023-12-29T15:19",
+      "endTime": "2023-12-21T15:19",
       "id": 7
+    },
+    {
+      "createdBy": 2,
+      "title": "sadasda",
+      "description": "adsads",
+      "image": "afvxcv",
+      "categoryIds": [
+        1,
+        10
+      ],
+      "location": "cvbxcz",
+      "startTime": "2023-12-21T15:20",
+      "endTime": "2023-12-27T15:20",
+      "id": 8
     }
   ],
   "categories": [

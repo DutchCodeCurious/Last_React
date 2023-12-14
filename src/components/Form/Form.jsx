@@ -2,17 +2,18 @@ import React, { useReducer, useEffect, useState } from "react";
 import { formReducer, INITIAL_STATE } from "./FormReducer";
 import { useActiveUser } from "../../context/activeUser";
 import { getCategories, createCategory } from "../../Api/categories";
-import { createEvent, updateEvent } from "../../Api/events";
-import { Navigate } from "react-router-dom";
+//import { createEvent, updateEvent } from "../../Api/events";
+//import { useNavigate } from "react-router-dom";
+//import { showSuccessToast, showErrorToast } from "../toastNotifications";
 
-export const Form = (event) => {
-  const eventToEdit = event.event;
+export const Form = ({ event, onSubmit }) => {
+  const eventToEdit = event;
   const [state, dispatch] = useReducer(formReducer, INITIAL_STATE);
   const [categories, setCategories] = useState([]);
   const [checkedCategories, setCheckedCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [reload, setReload] = useState(false);
-
+  // const navigate = useNavigate();
   const { activeUser } = useActiveUser();
 
   useEffect(() => {
@@ -83,13 +84,7 @@ export const Form = (event) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (eventToEdit) {
-      updateEvent(state.events);
-      Navigate(`/event/${state.events.id}`);
-      console.log("put is made");
-    }
-    createEvent(state.events);
-    console.log("post is made");
+    onSubmit(state.events);
   };
 
   return (

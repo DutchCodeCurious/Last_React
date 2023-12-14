@@ -31,7 +31,7 @@ export const UserPage = () => {
   return activeUser === null ? (
     <div className="user_list">
       <h1>Choose User</h1>
-      <button onClick={() => setActiveUser(null)}> Clear User</button>
+      <button onClick={() => setActiveUser(null)}>Reset / Other user</button>
       {users &&
         users.map((user) => (
           <div key={user.id} onClick={() => handleOnClick(user)}>

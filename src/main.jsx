@@ -1,10 +1,11 @@
 import React from "react";
-
+import { ToastContainer } from "react-toastify";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // Styles of the site imports
 import { Root } from "./components/Root";
 import "./style.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 // Pages import
 import { AddEventPage } from "./pages/AddEventPage";
@@ -52,6 +53,18 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="app">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="container">
         <RouterProvider router={router} />
       </div>
