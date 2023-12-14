@@ -79,6 +79,35 @@
       "startTime": "2023-12-15T12:40",
       "endTime": "2023-12-30T12:40",
       "id": 5
+    },
+    {
+      "createdBy": 2,
+      "title": "Verkiezen",
+      "description": "Ergen ",
+      "image": "",
+      "categoryIds": [
+        11,
+        5
+      ],
+      "location": "Dutchland",
+      "startTime": "2023-12-23T11:31",
+      "endTime": "2023-12-22T11:31",
+      "id": 6
+    },
+    {
+      "createdBy": 2,
+      "title": "Stemm",
+      "description": "DIneg",
+      "image": "",
+      "categoryIds": [
+        11,
+        5,
+        6
+      ],
+      "location": "Frank",
+      "startTime": "2023-12-24T11:32",
+      "endTime": "2023-12-23T11:32",
+      "id": 7
     }
   ],
   "categories": [

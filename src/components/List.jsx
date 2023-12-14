@@ -3,7 +3,7 @@ import { SimpleGrid } from "@chakra-ui/react";
 import React from "react";
 
 export function ListDisplay(events) {
-  console.log(events);
+  console.log(events.events);
 
   if (events.events == null) {
     console.log("loading...");

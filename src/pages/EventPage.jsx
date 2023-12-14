@@ -10,6 +10,7 @@ export const EventPage = () => {
   const [event, setEvent] = useState(null);
   const [user, setUser] = useState(null);
   const { id } = useParams();
+  console.log("Render EventPage " + id);
 
   useEffect(() => {
     getEvent(id).then((res) => setEvent(res));
