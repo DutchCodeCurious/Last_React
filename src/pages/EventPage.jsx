@@ -9,11 +9,13 @@ import {
   showSuccessToast,
   showErrorToast,
 } from "../components/toastNotifications";
+import { useActiveUser } from "../context/activeUser";
 
 export const EventPage = () => {
   const [event, setEvent] = useState(null);
   const [user, setUser] = useState(null);
   const { id } = useParams();
+  const { activeUser } = useActiveUser("");
   const navigate = useNavigate();
 
   const handleDelete = async (id) => {
@@ -44,6 +46,7 @@ export const EventPage = () => {
     return <div>loading...</div>;
   }
 
+  console.log(activeUser);
   return (
     <>
       <div className="event_detail">
@@ -55,18 +58,21 @@ export const EventPage = () => {
       <div className="event_user">
         <UserCard user={user} />
       </div>
-      <div className="event_buttons">
-        <Button
-          className="event_button"
-          as={Link}
-          to={`/event/` + event.id.toString() + `/edit`}
-        >
-          Edit
-        </Button>
-        <Button className="event_button" onClick={() => handleDelete(id)}>
-          Delete
-        </Button>
-      </div>
+
+      {activeUser && activeUser.id === event.createdBy ? (
+        <div className="event_buttons">
+          <Button
+            className="event_button"
+            as={Link}
+            to={`/event/` + event.id.toString() + `/edit`}
+          >
+            Edit
+          </Button>
+          <Button className="event_button" onClick={() => handleDelete(id)}>
+            Delete
+          </Button>
+        </div>
+      ) : null}
     </>
   );
 };

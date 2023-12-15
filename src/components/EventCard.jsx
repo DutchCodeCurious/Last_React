@@ -12,8 +12,11 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
+import { useActiveUser } from "../context/activeUser";
 
 export const EventCard = ({ event }) => {
+  const { activeUser } = useActiveUser();
+
   return (
     <Card w="280px" h="440px">
       <CardBody>
@@ -37,14 +40,16 @@ export const EventCard = ({ event }) => {
           >
             More info
           </Button>
-          <Button
-            variant="ghost"
-            colorScheme="blue"
-            as={Link}
-            to={`/event/` + event.id.toString() + `/edit`}
-          >
-            Edit
-          </Button>
+          {activeUser && activeUser.id === event.createdBy ? (
+            <Button
+              variant="ghost"
+              colorScheme="blue"
+              as={Link}
+              to={`/event/` + event.id.toString() + `/edit`}
+            >
+              Edit
+            </Button>
+          ) : null}
         </ButtonGroup>
       </CardFooter>
     </Card>
