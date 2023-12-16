@@ -4,11 +4,16 @@ import { getEventByUser } from "../Api/events";
 import { UserCard } from "../components/UserCard";
 import { useActiveUser } from "../context/activeUser";
 import { ListDisplay } from "../components/List";
+import { Button } from "@chakra-ui/react";
+import CreateUserModal from "../components/CreateUserModal";
 
 export const UserPage = () => {
-  const [users, setUsers] = useState([]);
   const { activeUser, setActiveUser } = useActiveUser(null);
+  const [users, setUsers] = useState([]);
   const [events, setEvents] = useState(null);
+  const [created, setCreated] = useState(false);
+
+  // const [modalIsOpen, setModalIsOpen] = useState(false);
   console.log("Render UserPage");
 
   function handleOnClick(user) {
@@ -17,7 +22,8 @@ export const UserPage = () => {
 
   useEffect(() => {
     getUsers().then((res) => setUsers(res));
-  }, []);
+    setCreated(false);
+  }, [created]);
 
   useEffect(() => {
     if (activeUser) getEventByUser(activeUser.id).then((res) => setEvents(res));
@@ -29,19 +35,24 @@ export const UserPage = () => {
   }
 
   return activeUser === null ? (
-    <div className="user_list">
-      <h1>Choose User</h1>
-      <button onClick={() => setActiveUser(null)}>Reset / Other user</button>
-      {users &&
-        users.map((user) => (
-          <div key={user.id} onClick={() => handleOnClick(user)}>
-            <UserCard user={user} />
-          </div>
-        ))}
+    <div className="user_choose_page">
+      <>
+        <CreateUserModal setCreated={setCreated} />
+      </>
+      <div className="user_list">
+        <h1>Choose User</h1>
+        <Button onClick={() => setActiveUser(null)}>Reset / Other user</Button>
+        {users &&
+          users.map((user) => (
+            <div key={user.id} onClick={() => handleOnClick(user)}>
+              <UserCard user={user} />
+            </div>
+          ))}
+      </div>
     </div>
   ) : (
     <>
-      <button onClick={() => setActiveUser(null)}> Clear User</button>
+      <Button onClick={() => setActiveUser(null)}> Clear User</Button>
       <UserCard user={activeUser} />
       <ListDisplay events={events} />
     </>

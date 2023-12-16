@@ -9,6 +9,26 @@
       "id": 2,
       "name": "Jane Bennett",
       "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb401d7131c760ca1c63_Elieska%20Lensink.jpg"
+    },
+    {
+      "name": "Joppe Test",
+      "image": "C:\\fakepath\\man.png",
+      "id": 3
+    },
+    {
+      "name": "Joppe Test",
+      "image": "C:\\fakepath\\man.png",
+      "id": 4
+    },
+    {
+      "name": "Jetze test",
+      "image": "C:\\fakepath\\defaultEvent.png",
+      "id": 5
+    },
+    {
+      "name": "Notification Check",
+      "image": "C:\\fakepath\\woman.png",
+      "id": 6
     }
   ],
   "events": [
@@ -125,6 +145,21 @@
       "startTime": "2023-12-21T15:20",
       "endTime": "2023-12-27T15:20",
       "id": 8
+    },
+    {
+      "createdBy": 3,
+      "title": "Coderen ",
+      "description": "typen en kijken naar een scherm dat dingen kan doen",
+      "image": "C:\\fakepath\\defaultEvent.png",
+      "categoryIds": [
+        2,
+        8,
+        7
+      ],
+      "location": "World",
+      "startTime": "2023-12-16T16:52",
+      "endTime": "2024-12-16T16:52",
+      "id": 9
     }
   ],
   "categories": [
@@ -171,6 +206,22 @@
     {
       "name": "Verkiezing",
       "id": 11
+    },
+    {
+      "name": "Computeren",
+      "id": 12
+    },
+    {
+      "name": "Test2",
+      "id": 13
+    },
+    {
+      "name": "nieuw",
+      "id": 14
+    },
+    {
+      "name": "Reload",
+      "id": 15
     }
   ]
 }

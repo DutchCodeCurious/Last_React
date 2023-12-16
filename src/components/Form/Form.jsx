@@ -2,6 +2,8 @@ import React, { useReducer, useEffect, useState } from "react";
 import { formReducer, INITIAL_STATE } from "./FormReducer";
 import { useActiveUser } from "../../context/activeUser";
 import { getCategories, createCategory } from "../../Api/categories";
+import CategorieModal from "./CategorieModal";
+import { Button } from "react-bootstrap";
 //import { createEvent, updateEvent } from "../../Api/events";
 //import { useNavigate } from "react-router-dom";
 //import { showSuccessToast, showErrorToast } from "../toastNotifications";
@@ -11,7 +13,6 @@ export const Form = ({ event, onSubmit }) => {
   const [state, dispatch] = useReducer(formReducer, INITIAL_STATE);
   const [categories, setCategories] = useState([]);
   const [checkedCategories, setCheckedCategories] = useState([]);
-  const [newCategory, setNewCategory] = useState("");
   const [reload, setReload] = useState(false);
   // const navigate = useNavigate();
   const { activeUser } = useActiveUser();
@@ -27,23 +28,7 @@ export const Form = ({ event, onSubmit }) => {
 
   useEffect(() => {
     getCategories().then((res) => setCategories(res));
-    dispatch({
-      type: "UPDATE_EVENTS",
-      payload: {
-        createdBy: activeUser.id,
-      },
-    });
   }, [reload]);
-
-  const handleCreateCategory = (e) => {
-    e.preventDefault();
-    setNewCategory(e.target.value);
-  };
-
-  const handleAddButton = (e) => {
-    e.preventDefault();
-    createCategory({ name: newCategory }).then(() => setReload(!reload));
-  };
 
   const handleCheckboxChange = (e) => {
     const { value, checked } = e.target;
@@ -84,6 +69,12 @@ export const Form = ({ event, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch({
+      type: "UPDATE_EVENTS",
+      payload: {
+        createdBy: activeUser.id,
+      },
+    });
     onSubmit(state.events);
   };
 
@@ -107,7 +98,7 @@ export const Form = ({ event, onSubmit }) => {
             onChange={handleChange}
           />
           <input
-            type="text"
+            type="file"
             placeholder="Image"
             name="image"
             onChange={handleChange}
@@ -153,6 +144,8 @@ export const Form = ({ event, onSubmit }) => {
                 </label>
               </div>
             ))}
+            <CategorieModal setReload={setReload} />
+            {/* 
             <div className="category-input">
               <input
                 type="text"
@@ -163,8 +156,10 @@ export const Form = ({ event, onSubmit }) => {
               ></input>
               <button onClick={handleAddButton}>add</button>
             </div>
+                 */}
           </div>
-          <button type="submit">Submit</button>
+
+          <Button type="submit">Submit</Button>
         </form>
       </div>
     </>
