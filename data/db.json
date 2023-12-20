@@ -14,21 +14,6 @@
       "name": "Joppe Test",
       "image": "C:\\fakepath\\man.png",
       "id": 3
-    },
-    {
-      "name": "Joppe Test",
-      "image": "C:\\fakepath\\man.png",
-      "id": 4
-    },
-    {
-      "name": "Jetze test",
-      "image": "C:\\fakepath\\defaultEvent.png",
-      "id": 5
-    },
-    {
-      "name": "Notification Check",
-      "image": "C:\\fakepath\\woman.png",
-      "id": 6
     }
   ],
   "events": [
@@ -38,8 +23,8 @@
       "description": "Bounce around with your friends",
       "image": "https://i.pinimg.com/736x/3d/2f/af/3d2faf4e3188d34a9fcdc00df59e77b0.jpg",
       "categoryIds": [
-        1,
-        2
+        2,
+        1
       ],
       "location": "My back yard",
       "startTime": "2023-03-10T18:00",
@@ -47,7 +32,7 @@
       "id": 1
     },
     {
-      "createdBy": 2,
+      "createdBy": 1,
       "title": "Laser Tag mania",
       "description": "Let's play laser tag!",
       "image": "https://www.ctvnews.ca/polopoly_fs/1.5118552.1600965663!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg",
@@ -75,7 +60,7 @@
     },
     {
       "id": 4,
-      "createdBy": 2,
+      "createdBy": 1,
       "title": "Yoga",
       "description": "It's a bit of a stretch.",
       "image": "https://ymcasouthflorida.org/wp-content/uploads/2019/12/AA2I8910-scaled.jpg",
@@ -85,81 +70,6 @@
       "location": "Shavasana Yoga School",
       "startTime": "2023-03-09T06:00:00.000Z",
       "endTime": "2023-03-09T07:00:00.000Z"
-    },
-    {
-      "createdBy": 2,
-      "title": "eweqe",
-      "description": "wdadsfafv",
-      "image": "dfy",
-      "categoryIds": [
-        3,
-        6,
-        8
-      ],
-      "location": "yujfstr",
-      "startTime": "2024-01-04T15:10",
-      "endTime": "2023-12-31T15:10",
-      "id": 5
-    },
-    {
-      "createdBy": 2,
-      "title": "sadasds",
-      "description": "fdsafsad",
-      "image": "sadsad",
-      "categoryIds": [
-        4,
-        6,
-        9,
-        11
-      ],
-      "location": "fsasfasf",
-      "startTime": "2023-12-29T15:18",
-      "endTime": "2023-12-29T18:18",
-      "id": 6
-    },
-    {
-      "createdBy": 2,
-      "title": "sdasda",
-      "description": "sdasd",
-      "image": "sadasdasd",
-      "categoryIds": [
-        5,
-        9,
-        4
-      ],
-      "location": "asdasda",
-      "startTime": "2023-12-29T15:19",
-      "endTime": "2023-12-21T15:19",
-      "id": 7
-    },
-    {
-      "createdBy": 2,
-      "title": "sadasda",
-      "description": "adsads",
-      "image": "afvxcv",
-      "categoryIds": [
-        1,
-        10
-      ],
-      "location": "cvbxcz",
-      "startTime": "2023-12-21T15:20",
-      "endTime": "2023-12-27T15:20",
-      "id": 8
-    },
-    {
-      "createdBy": 3,
-      "title": "Coderen ",
-      "description": "typen en kijken naar een scherm dat dingen kan doen",
-      "image": "C:\\fakepath\\defaultEvent.png",
-      "categoryIds": [
-        2,
-        8,
-        7
-      ],
-      "location": "World",
-      "startTime": "2023-12-16T16:52",
-      "endTime": "2024-12-16T16:52",
-      "id": 9
     }
   ],
   "categories": [
@@ -176,52 +86,12 @@
       "id": 3
     },
     {
-      "name": "roken",
+      "name": "Test",
       "id": 4
     },
     {
-      "name": "stemmen",
-      "id": 5
-    },
-    {
-      "name": "shoppen",
-      "id": 6
-    },
-    {
-      "name": "lezen",
-      "id": 7
-    },
-    {
-      "name": "coderen",
-      "id": 8
-    },
-    {
-      "name": "Blowen",
-      "id": 9
-    },
-    {
-      "name": "Fietsen",
-      "id": 10
-    },
-    {
-      "name": "Verkiezing",
-      "id": 11
-    },
-    {
-      "name": "Computeren",
-      "id": 12
-    },
-    {
       "name": "Test2",
-      "id": 13
-    },
-    {
-      "name": "nieuw",
-      "id": 14
-    },
-    {
-      "name": "Reload",
-      "id": 15
+      "id": 5
     }
   ]
 }

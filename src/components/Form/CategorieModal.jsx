@@ -1,9 +1,8 @@
 import { Button, Modal, Form } from "react-bootstrap";
 import React, { useState } from "react";
-import { getCategories, createCategory } from "../../Api/categories";
-import { ButtonSpinner, FormLabel, Input } from "@chakra-ui/react";
-import { showErrorToast, showSuccessToast } from "../toastNotifications";
-import { set } from "react-hook-form";
+import { createCategory } from "../../Api/categories";
+import { FormLabel, Input } from "@chakra-ui/react";
+import { showSuccessToast } from "../toastNotifications";
 
 function CategorieModal({ setReload }) {
   const [showModal, setShowModal] = useState(false);
@@ -19,6 +18,7 @@ function CategorieModal({ setReload }) {
 
   const handleAddButton = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     createCategory({ name: newcategory });
     handleClose();
     showSuccessToast(`Category ${newcategory} created`);
@@ -28,7 +28,7 @@ function CategorieModal({ setReload }) {
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
-        Open Modal
+        Add Category
       </Button>
 
       <Modal show={showModal} onHide={handleClose}>
@@ -36,7 +36,7 @@ function CategorieModal({ setReload }) {
           <Modal.Title>New Categories</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={handleAddButton}>
             <FormLabel>New Category</FormLabel>
             <Input
               name="category"
@@ -46,7 +46,7 @@ function CategorieModal({ setReload }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleAddButton}>
+          <Button variant="primary" type="submit" onClick={handleAddButton}>
             Add Category
           </Button>
         </Modal.Footer>

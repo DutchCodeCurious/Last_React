@@ -4,6 +4,7 @@ import { useActiveUser } from "../../context/activeUser";
 import { getCategories, createCategory } from "../../Api/categories";
 import CategorieModal from "./CategorieModal";
 import { Button } from "react-bootstrap";
+import FileForm from "./FileForm";
 //import { createEvent, updateEvent } from "../../Api/events";
 //import { useNavigate } from "react-router-dom";
 //import { showSuccessToast, showErrorToast } from "../toastNotifications";
@@ -16,6 +17,17 @@ export const Form = ({ event, onSubmit }) => {
   const [reload, setReload] = useState(false);
   // const navigate = useNavigate();
   const { activeUser } = useActiveUser();
+
+  useEffect(() => {
+    if (activeUser) {
+      dispatch({
+        type: "UPDATE_EVENTS",
+        payload: {
+          createdBy: activeUser.id,
+        },
+      });
+    }
+  }, [activeUser]);
 
   useEffect(() => {
     if (eventToEdit) {
@@ -69,12 +81,6 @@ export const Form = ({ event, onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "UPDATE_EVENTS",
-      payload: {
-        createdBy: activeUser.id,
-      },
-    });
     onSubmit(state.events);
   };
 
@@ -97,13 +103,17 @@ export const Form = ({ event, onSubmit }) => {
             value={state.events.description}
             onChange={handleChange}
           />
-          <input
-            type="file"
-            placeholder="Image"
-            name="image"
-            onChange={handleChange}
-            value={state.events.image}
-          />
+          {!eventToEdit ? (
+            <input
+              type="file"
+              placeholder="Image"
+              name="image"
+              onChange={handleChange}
+              value={state.events.image}
+            />
+          ) : (
+            <FileForm handleChange={handleChange} />
+          )}
           <input
             type="text"
             placeholder="Location"
@@ -145,18 +155,6 @@ export const Form = ({ event, onSubmit }) => {
               </div>
             ))}
             <CategorieModal setReload={setReload} />
-            {/* 
-            <div className="category-input">
-              <input
-                type="text"
-                name="name"
-                placeholder="sports"
-                value={newCategory}
-                onChange={handleCreateCategory}
-              ></input>
-              <button onClick={handleAddButton}>add</button>
-            </div>
-                 */}
           </div>
 
           <Button type="submit">Submit</Button>
