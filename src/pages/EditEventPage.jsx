@@ -9,7 +9,7 @@ import {
   showSuccessToast,
 } from "../components/toastNotifications";
 
-import { ExampleForm } from "../components/Form/ExampleForm";
+import { EventForm } from "../components/Form/EventForm";
 
 export const EditEventPage = () => {
   const [event, setEvent] = useState();
@@ -36,7 +36,7 @@ export const EditEventPage = () => {
   return (
     <div>
       <h1>Edit Event Page</h1>
-      {event && <ExampleForm event={event} />}
+      {event && <EventForm event={event} />}
       {/** 
       {event && <Form event={event} onSubmit={onSubmit} />}
       */}

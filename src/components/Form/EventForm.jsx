@@ -8,7 +8,7 @@ import CategorieModal from "./CategorieModal";
 import FileForm from "./FileForm";
 import { MyTextInput, MyCheckbox, MyDateInput, MyFileInput } from "./MyInputs";
 
-export const ExampleForm = ({ event }) => {
+export const EventForm = ({ event }) => {
   const editEvent = event;
   const { activeUser } = useActiveUser();
   const [categories, setCategories] = useState([]);
