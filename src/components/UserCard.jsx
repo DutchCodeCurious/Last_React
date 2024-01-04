@@ -18,7 +18,7 @@ export const UserCard = ({ user }) => {
 
           <Box>
             <Heading size="sm">{user.name}</Heading>
-            <Text>Creator, Chakra UI</Text>
+            <Text>Creator</Text>
           </Box>
         </Flex>
         {/** 
