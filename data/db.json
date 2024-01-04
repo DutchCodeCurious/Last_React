@@ -14,6 +14,11 @@
       "name": "Joppe Test",
       "image": "C:\\fakepath\\man.png",
       "id": 3
+    },
+    {
+      "name": "Dot dit?",
+      "image": "",
+      "id": 4
     }
   ],
   "events": [
@@ -86,12 +91,8 @@
       "id": 3
     },
     {
-      "name": "Test",
+      "name": "Moment",
       "id": 4
-    },
-    {
-      "name": "Test2",
-      "id": 5
     }
   ]
 }

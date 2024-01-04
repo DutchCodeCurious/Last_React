@@ -6,6 +6,7 @@ import {
   showErrorToast,
 } from "../components/toastNotifications";
 import { useNavigate } from "react-router-dom";
+import { ExampleForm } from "../components/Form/ExampleForm";
 
 export const AddEventPage = () => {
   console.log("Render AddEventPage");
@@ -24,7 +25,11 @@ export const AddEventPage = () => {
   return (
     <div>
       <h1>Add Event Page</h1>
-      <Form onSubmit={onSubmit} />
+      <ExampleForm />
     </div>
   );
 };
+
+{
+  /*onSubmit={onSubmit}*/
+}

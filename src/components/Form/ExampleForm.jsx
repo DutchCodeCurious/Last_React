@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Formik, Form, setFieldValue } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { useActiveUser } from "../../context/activeUser";
 import { getCategories } from "../../Api/categories";
@@ -27,48 +27,39 @@ export const ExampleForm = ({ event }) => {
         categoryIds: [],
       };
 
+  const validationSchema = Yup.object({
+    title: Yup.string()
+      .max(25, "Must be 25 characters or less")
+      .required("Required"),
+    description: Yup.string()
+      .max(200, "Must be 20 characters or less")
+      .required("Required"),
+    image: Yup.string().required("Required"),
+    location: Yup.string().required("Required"),
+    startTime: Yup.date().required("Required"),
+    endTime: Yup.date().required("Required"),
+  });
+
   useEffect(() => {
     getCategories().then((res) => setCategories(res));
   }, [reload]);
 
-  const handleCheckboxChange = (event) => {
-    const { value } = event.target;
-    const categoryId = parseInt(value, 10);
-
-    if (initialValues.categoryIds.includes(categoryId)) {
-      setFieldValue(
-        "categoryIds",
-        initialValues.categoryIds.filter((id) => id !== categoryId)
-      );
-    } else {
-      setFieldValue("categoryIds", [...initialValues.categoryIds, categoryId]);
-    }
+  const onSubmit = (values, { setSubmitting }) => {
+    setTimeout(() => {
+      console.log(values);
+      alert(JSON.stringify(values, null, 2));
+      setSubmitting(false);
+    }, 400);
   };
-
+  console.log(initialValues);
   return (
     <>
-      <h1>Subscribe!</h1>
+      <h1>Create new Event!</h1>
       <Formik
         initialValues={initialValues}
-        validationSchema={Yup.object({
-          title: Yup.string()
-            .max(25, "Must be 25 characters or less")
-            .required("Required"),
-          description: Yup.string()
-            .max(200, "Must be 20 characters or less")
-            .required("Required"),
-          image: Yup.string().required("Required"),
-          location: Yup.string().required("Required"),
-          startTime: Yup.date().required("Required"),
-          endTime: Yup.date().required("Required"),
-        })}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            console.log(values);
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
-        }}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+        enableReinitialize
       >
         <Form>
           <MyTextInput
@@ -111,12 +102,10 @@ export const ExampleForm = ({ event }) => {
               value={category.id}
               label={category.name}
               key={index}
-              checked={
-                editEvent && initialValues.categoryIds.includes(category.id)
-              }
-              onChange={handleCheckboxChange}
+              checked={initialValues.categoryIds.includes(category.id)}
             />
           ))}
+
           <CategorieModal setReload={setReload} />
 
           <button type="submit">Submit</button>
